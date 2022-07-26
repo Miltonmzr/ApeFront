@@ -1,0 +1,26 @@
+<h1>
+    <p>Hiciste inicio de sesion con exito!!</p>
+</h1>
+<div class="example-container mat-elevation-z8">
+    <mat-card class="example-card">
+        <div class="button-row">
+            <a mat-flat-button color="primary" (click)="logout()">
+                <mat-icon>logout</mat-icon>Logout</a>
+        </div>
+        <mat-card class="example-card">
+          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Aqui deberia estar: {{ authService.user.name }}
+            {{authService.user.email}}
+            {{authService.user.roles}}
+            {{currentUser.age}}
+            {{currentUser.role}}
+            {{roleUser}}
+            <img src="{{qrCode}}" alt="">
+            <div *ngIf="roleUser === 'STUDENT'">Este compa es estudiante</div>
+            <div *ngIf="roleUser === 'ADMINISTRATOR'">Este compa es Administrador uwu</div>
+          </a>
+        </mat-card>
+        <button mat-button (click)="redirectToComponent()">A ver si entra</button>
+        <button mat-button (click)="redirectToComponent2()">A ver si entra</button>
+    </mat-card>
+</div>

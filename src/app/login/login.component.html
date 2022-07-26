@@ -1,0 +1,38 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-loading-shade" *ngIf="isLogged">
+        <mat-spinner *ngIf="isLogged"></mat-spinner>
+    </div>
+    <mat-card class="example-card">
+        <form #loginForm="ngForm">
+            <h2>Log In</h2>
+            <mat-form-field class="example-full-width">
+                <label>
+            <input matInput [(ngModel)]="user.email" type="email" placeholder="Correo" name="email" required autofocus>
+          </label>
+                <mat-error>
+                    <span *ngIf="user.email != null" touched valid>Por favor teclee su correo</span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <label>
+            <input [(ngModel)]="user.password" type="password" matInput placeholder="***************" name="password" required>
+          </label>
+                <mat-error>
+                    <span *ngIf="user.password != null" touched valid password>Please enter Password</span>
+                </mat-error>
+            </mat-form-field>
+            <div class="button-row">
+                <button type="submit" (click)="login()" value="login" name="login" [disabled]="!loginForm.form.valid" mat-flat-button color="primary"><mat-icon>login</mat-icon>Login</button>
+            </div>
+            <div class="button-row">
+                <h4>Don't have an account?</h4>
+            </div>
+            <div class="button-row">
+                <a mat-flat-button color="primary" [routerLink]="['/register']">
+                    <mat-icon>how_to_reg</mat-icon>Register</a>
+            </div>
+        </form>
+        <button mat-button (click)="pruebas()">Jala</button>
+        <button mat-button (click)="redirectToProb()">A ver si entra</button>
+    </mat-card>
+</div>

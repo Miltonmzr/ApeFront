@@ -1,0 +1,79 @@
+<div class="example-container">
+  <div class="example-loading-shade" *ngIf="isLogged">
+    <mat-spinner *ngIf="isLogged"></mat-spinner>
+  </div>
+  <mat-card class="example-card">
+    <form #userForm="ngForm">
+      <h2>Register</h2>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput [(ngModel)]="user.name" placeholder="Nombre" type="text" name="name" required>
+        </label>
+        <mat-error>
+          <span *ngIf="user.name != null" valid touched>Por favor teclee su correo</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput [(ngModel)]="user.lastName" placeholder="Apellidos" type="text" name="lastName" required>
+        </label>
+        <mat-error>
+          <span *ngIf="user.lastName != null" valid touched>Por favor teclee su correo</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput [(ngModel)]="user.age" placeholder="Introduce tu edad" type="text" name="age" required>
+        </label>
+        <mat-error>
+          <span *ngIf="user.age != null" valid touched>Por favor teclee su correo</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput [(ngModel)]="user.cellphone" placeholder="Numero de telefono" type="tel" name="cellphone"
+            required>
+        </label>
+        <mat-error>
+          <span *ngIf="user.cellphone != null" valid touched>Por favor teclee su correo</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput [(ngModel)]="user.email" placeholder="Correo electronico" type="email" name="email
+            " required email>
+        </label>
+        <mat-error>
+          <span *ngIf="user.email != null" valid email touched>Por favor teclee su correo</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input matInput [(ngModel)]="user.udgCode" placeholder="Introdusca su codigo de UDG" type="number" name="udgCode">
+        </label>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <label>
+          <input [(ngModel)]="user.password" type="password" matInput placeholder="Contraseña" name="password" required>
+        </label>
+        <mat-error>
+          <span *ngIf="user.password != null" touched valid password>Please enter Password</span>
+        </mat-error>
+      </mat-form-field>
+      <div class="button-row">
+        <button type="submit" value="register" (click)='create()' [disabled]="!userForm.form.valid" mat-flat-button
+          color="primary">
+          <mat-icon>how_to_reg</mat-icon>Register
+        </button>
+      </div>
+      <div class="button-row">
+        <h4>Already registered?</h4>
+      </div>
+      <div class="button-row">
+        <a mat-flat-button color="primary" [routerLink]="['/login']">
+          <mat-icon>login</mat-icon>Login
+        </a>
+      </div>
+    </form>
+  </mat-card>
+</div>

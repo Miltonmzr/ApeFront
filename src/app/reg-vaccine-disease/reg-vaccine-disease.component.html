@@ -1,0 +1,54 @@
+<form>
+  <mat-card-content >
+    <div>
+      <h4>Favor de seleccionar si padece alguna de las siguientes enfermedades.</h4>
+    <p><mat-checkbox [(ngModel)]="disease.isElder" name="dis">Mas de 60 años</mat-checkbox></p>
+    <p><mat-checkbox [(ngModel)]="disease.hasPulmonary" name="dis">Enferemedad pulmonar</mat-checkbox></p>
+    <p><mat-checkbox [(ngModel)]="disease.hasArterialHypertension" name="dis">Hipertensión arterial</mat-checkbox></p>
+    <p><mat-checkbox [(ngModel)]="disease.hasCardiac" name="dis">Problemas cardiacos</mat-checkbox></p>
+    <p><mat-checkbox [(ngModel)]="disease.hasDiabetes" name="dis">Diabeticos</mat-checkbox></p>
+    <p><mat-checkbox [(ngModel)]="disease.hasObesity" name="dis">Obesidad</mat-checkbox></p>
+    <p><mat-checkbox [(ngModel)]="disease.hasCancer" name="dis">Cáncer</mat-checkbox></p>
+    <p><mat-form-field>
+      <input matInput placeholder="Otra padecimientos" value="" [(ngModel)]="disease.anotherDiseases" name="dis">
+    </mat-form-field></p>
+    </div>
+    <pre>{{ disease | json }}</pre>
+  <h4>Seleccione la vacuna</h4>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre de vacuna</mat-label>
+    <mat-select [(ngModel)]="vaccineItem.name" name="vaccines">
+      <mat-option *ngFor="let vaccines of vaccineItems" [value]="vaccines.name">
+        {{vaccines.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p> Vacuna selecccionada: {{vaccineItem.name}} </p>
+
+  <div *ngIf="isOther()">
+    <h3>Total de dosis aplicadas:</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Numero de dosis</mat-label>
+    <mat-select [(ngModel)]="totalDose" name="dose" [(ngModel)]="vaccine.doseNum" name="vaccines">
+      <mat-option value="1">1</mat-option>
+    <mat-option value="2">2</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div *ngIf="isCansino()">
+  <h3>Total de dosis aplicadas:</h3>
+  <mat-form-field appearance="fill">
+    <mat-label>Numero de dosis</mat-label>
+    <mat-select [(ngModel)]="totalDose" name="dose" [(ngModel)]="vaccine.doseNum" name="vaccines">
+      <mat-option value="1">1</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+ <pre>{{ vaccineItem | json }}</pre>
+ <pre>{{ vaccine | json }}</pre>
+</mat-card-content>
+<mat-button-toggle>Enviar</mat-button-toggle>
+
+</form>
+
